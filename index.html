@@ -632,7 +632,7 @@
         border-radius: var(--radius-md);
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow-sm);
-        overflow: hidden;
+        /* overflow: hidden; */
       }
       .comp-header {
         display: grid;
@@ -647,15 +647,17 @@
       .comp-header .comp-us {
         background: rgba(225, 174, 12, 0.1);
         color: var(--text-main);
+      }
+      .comp-header .comp-top {
         position: relative;
       }
-      .comp-header .comp-us::after {
+      .comp-header .comp-top::after {
         content: "Рекомендовано";
         position: absolute;
         top: -12px;
         right: 24px;
         background: var(--accent-brand);
-        color: #000;
+        color: var(--bg-color);
         font-size: 10px;
         padding: 4px 8px;
         border-radius: 12px;
@@ -1906,16 +1908,16 @@
         <div class="comparison animate-fade-up delay-2">
           <div class="comp-header">
             <div>Етап реєстрації</div>
-            <div>Самостійно (або дешеві сервіси)</div>
-            <div class="comp-us">З юристами FIRM.UA</div>
+            <div class="comp-us">Самостійно (або дешеві сервіси)</div>
+            <div class="comp-top">З юристами FIRM.UA</div>
           </div>
 
           <div class="comp-row">
             <div><strong>Розробка статуту</strong></div>
-            <div>
+            <div class="comp-us">
               Завантажений шаблон з інтернету, який не захищає засновників.
             </div>
-            <div class="comp-us">
+            <div>
               <svg
                 class="comp-icon icon-check"
                 viewBox="0 0 24 24"
@@ -1930,8 +1932,10 @@
           </div>
           <div class="comp-row">
             <div><strong>Система оподаткування</strong></div>
-            <div>Самостійний ризикований вибір навмання. Ризик штрафів.</div>
             <div class="comp-us">
+              Самостійний ризикований вибір навмання. Ризик штрафів.
+            </div>
+            <div>
               <svg
                 class="comp-icon icon-check"
                 viewBox="0 0 24 24"
@@ -1946,8 +1950,10 @@
           </div>
           <div class="comp-row">
             <div><strong>Витрати часу</strong></div>
-            <div>Години в чергах до ЦНАП, пошук нотаріуса, поїздки містом.</div>
             <div class="comp-us">
+              Години в чергах до ЦНАП, пошук нотаріуса, поїздки містом.
+            </div>
+            <div>
               <svg
                 class="comp-icon icon-check"
                 viewBox="0 0 24 24"
@@ -1962,10 +1968,10 @@
           </div>
           <div class="comp-row">
             <div><strong>Відмови реєстратора</strong></div>
-            <div>
+            <div class="comp-us">
               Часті відмови через помилки в заповненні заяв (втрата держмита).
             </div>
-            <div class="comp-us">
+            <div>
               <svg
                 class="comp-icon icon-check"
                 viewBox="0 0 24 24"
