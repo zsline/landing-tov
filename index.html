@@ -208,7 +208,7 @@
         font-weight: 600;
         cursor: pointer;
         transition: var(--transition);
-        border: 1px solid transparent;
+        /* border: 1px solid transparent; */
         gap: 8px;
       }
       .btn-primary {
@@ -310,11 +310,22 @@
           var(--bg-color) 70%
         );
       }
+      .hero__inner {
+        border: 6px solid #ffffff;
+        border-radius: 3vw;
+        width: 84%;
+        margin: 0 auto;
+        /* background-color: inherit; */
+        box-shadow:
+          0 1px 40px #00000020,
+          inset 0 1px 16px #00000015;
+      }
       .hero__wrapper {
         display: flex;
         align-items: flex-start;
         gap: 48px;
         text-align: left;
+        padding: 40px;
       }
       .hero__offer {
         width: 50%;
@@ -1041,250 +1052,256 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="container">
-        <div class="hero__wrapper">
-          <div class="animate-fade-up hero__offer">
-            <div class="badge-pill">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              Гарантія 100% успішної реєстрації
-            </div>
-            <h1>Відкрийте ТОВ за 24 години</h1>
-            <div class="hero__offer--subtitle">Без бюрократії</div>
-            <p class="hero-desc"></p>
-            <div class="hero-actions">
-              <a href="#pricing" class="btn btn-primary">Подивитись тарифи</a>
-              <a href="#process" class="btn btn-secondary">Як це працює</a>
-            </div>
-          </div>
-
-          <div class="animate-fade-up hero__quest">
-            <div class="badge-pill">
-              Безкоштовний онлайн-підбір та розрахунок
-            </div>
-            <h3>Яка система оподаткування підійде вашому ТОВ?</h3>
-
-            <!-- Quiz Widget -->
-            <div class="quiz-container">
-              <!-- Progress Bar -->
-              <div class="quiz-progress-bar">
-                <div
-                  class="quiz-progress"
-                  id="quiz-progress"
-                  style="width: 25%"
-                ></div>
-              </div>
-
-              <div class="quiz-steps">
-                <!-- Step 1 -->
-                <div class="quiz-step active" id="step-1">
-                  <h3 class="quiz-step-title">
-                    1. Оберіть сферу діяльності вашого майбутнього бізнесу:
-                  </h3>
-                  <div class="quiz-options-grid">
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(1, 'IT / Консалтинг')"
-                    >
-                      <div class="quiz-option-icon">💻</div>
-                      <div class="quiz-option-text">
-                        IT, маркетинг або послуги
-                      </div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(1, 'Торгівля')"
-                    >
-                      <div class="quiz-option-icon">🛒</div>
-                      <div class="quiz-option-text">
-                        Торгівля, інтернет-магазини
-                      </div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(1, 'Виробництво')"
-                    >
-                      <div class="quiz-option-icon">🧱</div>
-                      <div class="quiz-option-text">
-                        Виробництво або будівництво
-                      </div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(1, 'Інше')"
-                    >
-                      <div class="quiz-option-icon">💼</div>
-                      <div class="quiz-option-text">Інші види діяльності</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="quiz-step" id="step-2">
-                  <h3 class="quiz-step-title">
-                    2. Який очікуваний річний оборот компанії?
-                  </h3>
-                  <div class="quiz-options-grid">
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(2, 'До 1 млн грн')"
-                    >
-                      <div class="quiz-option-icon">🌱</div>
-                      <div class="quiz-option-text">До 1 000 000 грн</div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(2, '1 - 7.8 млн грн')"
-                    >
-                      <div class="quiz-option-icon">📈</div>
-                      <div class="quiz-option-text">Від 1 до 7.8 млн грн</div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(2, '7.8 - 10 млн грн')"
-                    >
-                      <div class="quiz-option-icon">🚀</div>
-                      <div class="quiz-option-text">Від 7.8 до 10 млн грн</div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(2, 'Понад 10 млн грн')"
-                    >
-                      <div class="quiz-option-icon">🏆</div>
-                      <div class="quiz-option-text">Бльше 10 млн грн</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="quiz-step" id="step-3">
-                  <h3 class="quiz-step-title">
-                    3. Скільки власників (засновників) буде у компанії?
-                  </h3>
-                  <div class="quiz-options-grid">
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(3, '1 засновник')"
-                    >
-                      <div class="quiz-option-icon">👤</div>
-                      <div class="quiz-option-text">Я єдиний власник</div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(3, '2-3 засновники')"
-                    >
-                      <div class="quiz-option-icon">👥</div>
-                      <div class="quiz-option-text">2 або 3 партнери</div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(3, '4+ засновників')"
-                    >
-                      <div class="quiz-option-icon">🤝</div>
-                      <div class="quiz-option-text">4 або більше партнерів</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="quiz-step" id="step-4">
-                  <h3 class="quiz-step-title">
-                    4. Який тип статуту (колективного договору) потрібен?
-                  </h3>
-                  <div class="quiz-options-grid">
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(4, 'Модельний статут')"
-                    >
-                      <div class="quiz-option-icon">📄</div>
-                      <div class="quiz-option-text">
-                        <b>Модельний (стандартний)</b><br /><small
-                          >Швидко та безкоштовно</small
-                        >
-                      </div>
-                    </div>
-                    <div
-                      class="quiz-option-card"
-                      onclick="selectOption(4, 'Індивідуальний статут')"
-                    >
-                      <div class="quiz-option-icon">🛡️</div>
-                      <div class="quiz-option-text">
-                        <b>Індивідуальний статут</b><br /><small
-                          >Захист від рейдерства та спорів</small
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Step 5 (Lead Form) -->
-                <div class="quiz-step" id="step-5">
-                  <h3
-                    class="quiz-step-title"
-                    style="color: var(--accent-brand)"
-                  >
-                    Тест завершено! Розрахунок готовий
-                  </h3>
-                  <p style="margin-bottom: 24px; color: var(--text-muted)">
-                    Залиште контакти, щоб отримати результат +
-                    <b>безкоштовний повноцінний лендінг*</b> для презентації
-                    Вашого бізнесу.
-                  </p>
-
-                  <form id="quiz-lead-form" onsubmit="submitQuiz(event)">
-                    <div class="quiz-form-group">
-                      <input
-                        type="text"
-                        id="quiz-name"
-                        class="quiz-input"
-                        placeholder="Ваше ім'я"
-                        required
-                      />
-                      <input
-                        type="tel"
-                        id="quiz-phone"
-                        class="quiz-input"
-                        placeholder="Номер телефону"
-                        required
-                      />
-                      <button
-                        type="submit"
-                        class="btn btn-primary"
-                        style="width: 100%; height: 50px"
-                      >
-                        Отримати розрахунок та знижку
-                      </button>
-                    </div>
-                  </form>
-                  <div class="note">* - у разі замови послуги</div>
-                </div>
-              </div>
-
-              <!-- Navigation buttons -->
-              <div class="quiz-nav" id="quiz-nav">
-                <button
-                  class="btn btn-secondary"
-                  id="btn-prev"
-                  onclick="prevStep()"
-                  style="
-                    display: none;
-                    height: 38px;
-                    padding: 0 16px;
-                    font-size: 13px;
-                    border-radius: 20px;
-                  "
+      <div class="hero__inner">
+        <div class="container">
+          <div class="hero__wrapper">
+            <div class="animate-fade-up hero__offer">
+              <div class="badge-pill">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
                 >
-                  ← Назад
-                </button>
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                Гарантія 100% успішної реєстрації
+              </div>
+              <h1>Відкрийте ТОВ за 24 години</h1>
+              <div class="hero__offer--subtitle">Без бюрократії</div>
+              <p class="hero-desc"></p>
+              <div class="hero-actions">
+                <a href="#pricing" class="btn btn-primary">Подивитись тарифи</a>
+                <a href="#process" class="btn btn-secondary">Як це працює</a>
+              </div>
+            </div>
+
+            <div class="animate-fade-up hero__quest">
+              <div class="badge-pill">
+                Безкоштовний онлайн-підбір та розрахунок
+              </div>
+              <h3>Яка система оподаткування підійде вашому ТОВ?</h3>
+
+              <!-- Quiz Widget -->
+              <div class="quiz-container">
+                <!-- Progress Bar -->
+                <div class="quiz-progress-bar">
+                  <div
+                    class="quiz-progress"
+                    id="quiz-progress"
+                    style="width: 25%"
+                  ></div>
+                </div>
+
+                <div class="quiz-steps">
+                  <!-- Step 1 -->
+                  <div class="quiz-step active" id="step-1">
+                    <h3 class="quiz-step-title">
+                      1. Оберіть сферу діяльності вашого майбутнього бізнесу:
+                    </h3>
+                    <div class="quiz-options-grid">
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(1, 'IT / Консалтинг')"
+                      >
+                        <div class="quiz-option-icon">💻</div>
+                        <div class="quiz-option-text">
+                          IT, маркетинг або послуги
+                        </div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(1, 'Торгівля')"
+                      >
+                        <div class="quiz-option-icon">🛒</div>
+                        <div class="quiz-option-text">
+                          Торгівля, інтернет-магазини
+                        </div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(1, 'Виробництво')"
+                      >
+                        <div class="quiz-option-icon">🧱</div>
+                        <div class="quiz-option-text">
+                          Виробництво або будівництво
+                        </div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(1, 'Інше')"
+                      >
+                        <div class="quiz-option-icon">💼</div>
+                        <div class="quiz-option-text">Інші види діяльності</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="quiz-step" id="step-2">
+                    <h3 class="quiz-step-title">
+                      2. Який очікуваний річний оборот компанії?
+                    </h3>
+                    <div class="quiz-options-grid">
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(2, 'До 1 млн грн')"
+                      >
+                        <div class="quiz-option-icon">🌱</div>
+                        <div class="quiz-option-text">До 1 000 000 грн</div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(2, '1 - 7.8 млн грн')"
+                      >
+                        <div class="quiz-option-icon">📈</div>
+                        <div class="quiz-option-text">Від 1 до 7.8 млн грн</div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(2, '7.8 - 10 млн грн')"
+                      >
+                        <div class="quiz-option-icon">🚀</div>
+                        <div class="quiz-option-text">
+                          Від 7.8 до 10 млн грн
+                        </div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(2, 'Понад 10 млн грн')"
+                      >
+                        <div class="quiz-option-icon">🏆</div>
+                        <div class="quiz-option-text">Бльше 10 млн грн</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 3 -->
+                  <div class="quiz-step" id="step-3">
+                    <h3 class="quiz-step-title">
+                      3. Скільки власників (засновників) буде у компанії?
+                    </h3>
+                    <div class="quiz-options-grid">
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(3, '1 засновник')"
+                      >
+                        <div class="quiz-option-icon">👤</div>
+                        <div class="quiz-option-text">Я єдиний власник</div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(3, '2-3 засновники')"
+                      >
+                        <div class="quiz-option-icon">👥</div>
+                        <div class="quiz-option-text">2 або 3 партнери</div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(3, '4+ засновників')"
+                      >
+                        <div class="quiz-option-icon">🤝</div>
+                        <div class="quiz-option-text">
+                          4 або більше партнерів
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 4 -->
+                  <div class="quiz-step" id="step-4">
+                    <h3 class="quiz-step-title">
+                      4. Який тип статуту (колективного договору) потрібен?
+                    </h3>
+                    <div class="quiz-options-grid">
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(4, 'Модельний статут')"
+                      >
+                        <div class="quiz-option-icon">📄</div>
+                        <div class="quiz-option-text">
+                          <b>Модельний (стандартний)</b><br /><small
+                            >Швидко та безкоштовно</small
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="quiz-option-card"
+                        onclick="selectOption(4, 'Індивідуальний статут')"
+                      >
+                        <div class="quiz-option-icon">🛡️</div>
+                        <div class="quiz-option-text">
+                          <b>Індивідуальний статут</b><br /><small
+                            >Захист від рейдерства та спорів</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 5 (Lead Form) -->
+                  <div class="quiz-step" id="step-5">
+                    <h3
+                      class="quiz-step-title"
+                      style="color: var(--accent-brand)"
+                    >
+                      Тест завершено! Розрахунок готовий
+                    </h3>
+                    <p style="margin-bottom: 24px; color: var(--text-muted)">
+                      Залиште контакти, щоб отримати результат +
+                      <b>безкоштовний повноцінний лендінг*</b> для презентації
+                      Вашого бізнесу.
+                    </p>
+
+                    <form id="quiz-lead-form" onsubmit="submitQuiz(event)">
+                      <div class="quiz-form-group">
+                        <input
+                          type="text"
+                          id="quiz-name"
+                          class="quiz-input"
+                          placeholder="Ваше ім'я"
+                          required
+                        />
+                        <input
+                          type="tel"
+                          id="quiz-phone"
+                          class="quiz-input"
+                          placeholder="Номер телефону"
+                          required
+                        />
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          style="width: 100%; height: 50px"
+                        >
+                          Отримати розрахунок та знижку
+                        </button>
+                      </div>
+                    </form>
+                    <div class="note">* - у разі замови послуги</div>
+                  </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="quiz-nav" id="quiz-nav">
+                  <button
+                    class="btn btn-secondary"
+                    id="btn-prev"
+                    onclick="prevStep()"
+                    style="
+                      display: none;
+                      height: 38px;
+                      padding: 0 16px;
+                      font-size: 13px;
+                      border-radius: 20px;
+                    "
+                  >
+                    ← Назад
+                  </button>
+                </div>
               </div>
             </div>
           </div>
