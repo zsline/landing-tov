@@ -220,6 +220,7 @@
         border: none;
         border-radius: 10px;
         font-weight: 600;
+        text-align: center;
         cursor: pointer;
         box-shadow: var(--shadow-elevated);
         transition: all var(--transition);
@@ -227,6 +228,7 @@
       .btn-brand {
         box-shadow: none;
         margin-right: 12px;
+        padding: 8px 30px;
       }
       .btn-brand:hover {
         background-color: var(--bg-light);
@@ -795,7 +797,7 @@
         transform: translateY(-8px);
       }
       .price-card.pro {
-        border: 2px solid var(--text-main);
+        border: 2px solid var(--accent-brand);
         box-shadow: var(--shadow-md);
         transform: translateY(-8px);
       }
@@ -809,7 +811,7 @@
         top: -14px;
         left: 50%;
         transform: translateX(-50%);
-        background: var(--text-main);
+        background: var(--accent-brand);
         color: var(--bg-color);
         padding: 6px 16px;
         border-radius: 20px;
@@ -1040,7 +1042,7 @@
         color: rgba(255, 255, 255, 0.4);
       }
       .lead-box .btn {
-        height: 54px;
+        height: 48px;
         padding: 0 32px;
         flex-shrink: 0;
       }
@@ -1138,9 +1140,7 @@
     <header>
       <div class="container header-inner">
         <a href="#" class="logo">FIRM<span>.</span>UA</a>
-        <a href="#consult" class="btn btn-secondary"
-          >Безкоштовна консультація</a
-        >
+        <a href="#consult" class="btn btn-brand">Безкоштовна консультація</a>
       </div>
     </header>
 
