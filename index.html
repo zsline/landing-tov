@@ -93,7 +93,7 @@
          * =================================================================== */
       :root {
         --bg-color: #ffffff;
-        --text-main: #111111;
+        --text-main: #3b3b3b;
         --text-muted: #666666;
         --text-light: #999999;
         --surface-50: #fbfbfb;
@@ -344,11 +344,12 @@
           var(--bg-color) 70%
         );
       }
-      .hero__inner {
+      .block__inner {
         border: 6px solid #ffffff;
         border-radius: 3vw;
         width: 84%;
         margin: 0 auto;
+        padding: 24px 0;
         background-color: inherit;
         box-shadow:
           0px -6px 10px #ffffff,
@@ -552,7 +553,7 @@
         .hero__offer--subtitle {
           font-size: 1.6rem;
         }
-        .hero__inner {
+        .block__inner {
           width: 96%;
         }
       }
@@ -572,14 +573,16 @@
         justify-content: center;
         gap: 64px;
         flex-wrap: wrap;
-        opacity: 0.6;
-        filter: grayscale(100%);
+        color: var(--accent-primary);
+        /* opacity: 0.6; */
+        /* filter: grayscale(100%); */
       }
       .logo-item {
         font-weight: 700;
         font-size: 1.2rem;
         letter-spacing: -0.03em;
-        color: var(--text-main);
+        color: var(--accent-primary);
+        margin-top: 8px;
       }
       /* ============================== */
       .trust__wrapper {
@@ -594,6 +597,18 @@
       .trust__list--item {
         font-size: 20px;
         margin-bottom: 16px;
+      }
+      .frust-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .frust-item img {
+        width: 160px;
+        aspect-ratio: 16 / 9;
+        border-radius: 20px;
+        opacity: 1;
+        filter: none !important;
       }
       /* ===================================================================
          *  COMPARISON TABLE
@@ -1109,7 +1124,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__inner">
+      <div class="block__inner">
         <div class="container">
           <div class="hero__wrapper">
             <div class="animate-fade-up hero__offer">
@@ -1368,48 +1383,84 @@
 
     <!-- LOGOS (SOCIAL PROOF) -->
     <section class="trust logos-sec section-sm">
-      <div class="container">
-        <h3
-          style="
-            text-align: center;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            text-align: center;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-            margin-bottom: 32px;
-            justify-content: center;
-          "
-          class="badge-pill"
-        >
-          Нам довіряють понад 1500 компаній
-        </h3>
-        <div class="logos-wrapper">
-          <!-- Placeholders for brand trust -->
-          <div class="logo-item">TechStartup</div>
-          <div class="logo-item">RetailGroup</div>
-          <div class="logo-item">AgroPlus</div>
-          <div class="logo-item">FinTech UA</div>
-          <div class="logo-item">BuildCorp</div>
-        </div>
-        <div class="trust__wrapper">
-          <div class="trust__wrapper--title">Саме тому, що:</div>
-          <div class="trust__list">
-            <div class="trust__list--item">
-              1. Вони чітко розуміли, які дані треба було підготувати,
-              <b>завдякі нашим консультаціям</b>
+      <div class="block__inner">
+        <div class="container">
+          <h3
+            style="
+              text-align: center;
+              font-size: 1.2rem;
+              text-transform: uppercase;
+              text-align: center;
+              letter-spacing: 0.1em;
+              font-weight: 600;
+              margin-bottom: 32px;
+              justify-content: center;
+            "
+            class="badge-pill"
+          >
+            Нам довіряють понад 1500 компаній
+          </h3>
+          <div class="logos-wrapper">
+            <!-- Placeholders for brand trust -->
+            <div class="frust-item">
+              <img
+                src="https://www.europeanbusinessreview.com/wp-content/uploads/2022/02/1_uIKPm9nttvHWnhoP6TPX3A-696x348.jpeg"
+                alt=""
+              />
+              <div class="logo-item">TechStartup</div>
             </div>
-            <div class="trust__list--item">
-              2. Вони не гаяли час на підготовку документів,
-              <b>завдяки нашим юристам</b>
+            <div class="frust-item">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D4D22AQEBJI6WdtRjPg/feedshare-shrink_800/B4DZ1DNowdIAAc-/0/1774949142004?e=2147483647&v=beta&t=IeN5cOA0hb9xBqZ4_hJM7np7IjLgBd9TUmtJ1pR_N-g"
+                alt=""
+              />
+              <div class="logo-item">RetailGroup</div>
             </div>
-            <div class="trust__list--item">
-              3. Вони не чекали черг та не ломали голову у Дії під час
-              завантаження документів, <b>завдяки нашим фахівцям</b>
+
+            <div class="frust-item">
+              <img
+                src="https://i.ytimg.com/vi/dl9E6Nb-law/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAmGQytjWdATdyA1UuawPKscx-zNA"
+                alt=""
+              />
+              <div class="logo-item">AgroPlus</div>
             </div>
-            <div class="trust__list--item">
-              4. Вони просто звернулись до нас,
-              <b>довіряючи нашому досвіду та сталому авторитету</b>
+
+            <div class="frust-item">
+              <img
+                src="https://chamber.ua/wp-content/uploads/2026/02/900kh600_finvik.png"
+                alt=""
+              />
+              <div class="logo-item">FinTech UA</div>
+            </div>
+
+            <div class="frust-item">
+              <img
+                src="https://pbs.twimg.com/media/FGeLn5TUcAMqTYp.jpg"
+                alt=""
+              />
+              <div class="logo-item">BuildCorp</div>
+            </div>
+          </div>
+
+          <div class="trust__wrapper">
+            <div class="trust__wrapper--title">Саме тому, що:</div>
+            <div class="trust__list">
+              <div class="trust__list--item">
+                1. Вони чітко розуміли, які дані треба було підготувати,
+                <b>завдякі нашим консультаціям</b>
+              </div>
+              <div class="trust__list--item">
+                2. Вони не гаяли час на підготовку документів,
+                <b>завдяки нашим юристам</b>
+              </div>
+              <div class="trust__list--item">
+                3. Вони не чекали черг та не ломали голову у Дії під час
+                завантаження документів, <b>завдяки нашим фахівцям</b>
+              </div>
+              <div class="trust__list--item">
+                4. Вони просто звернулись до нас,
+                <b>довіряючи нашому досвіду та сталому авторитету</b>
+              </div>
             </div>
           </div>
         </div>
