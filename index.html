@@ -327,6 +327,11 @@
         text-align: left;
         padding: 40px;
       }
+      @media (max-width: 764px) {
+        .hero__wrapper {
+          padding: 16px 0;
+        }
+      }
       .hero__offer {
         width: 50%;
         text-align: left;
@@ -485,6 +490,11 @@
         margin-left: auto;
         margin-right: auto;
       }
+      @media (max-width: 576px) {
+        .badge-pill {
+          font-size: 1rem;
+        }
+      }
       .badge-pill svg {
         color: var(--accent-brand);
       }
@@ -498,6 +508,18 @@
         display: flex;
         gap: 16px;
         justify-content: start;
+      }
+      @media (max-width: 576px) {
+        .hero-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero__offer--subtitle {
+          font-size: 1.6rem;
+        }
+        .hero__inner {
+          width: 96%;
+        }
       }
 
       /* ===================================================================
@@ -1001,7 +1023,7 @@
           font-size: 2rem;
         }
         .hero {
-          padding: 140px 0 60px;
+          padding: 164px 0 60px;
         }
         .form-group {
           flex-direction: column;
