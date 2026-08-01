@@ -14,6 +14,21 @@
 
     <style>
       /* A/B Test Navigation Bar and Variant Indicator */
+      :root {
+        --bg-primary: #e0e5ec;
+        --bg-light: #f1f5f9;
+        --text-primary: #434343;
+        --accent-primary: #767676;
+        --shadow-light: #ffffff;
+        --shadow-dark: #a0a0a0;
+
+        --shadow-elevated:
+          5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+
+        --shadow-pressed:
+          inset 5px 5px 10px var(--shadow-dark),
+          inset -5px -5px 10px var(--shadow-light);
+      }
       .test-nav-bar {
         position: fixed;
         top: 0;
@@ -198,6 +213,17 @@
 
       /* BUTTONS */
       .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: var(--bg-primary);
+        color: var(--accent-primary);
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: var(--shadow-elevated);
+      }
+      /* .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -208,28 +234,36 @@
         font-weight: 600;
         cursor: pointer;
         transition: var(--transition);
-        /* border: 1px solid transparent; */
+        border: 1px solid transparent;
         gap: 8px;
-      }
-      .btn-primary {
+      } */
+      /* .btn-primary {
         background: var(--accent-brand);
         color: var(--text-main);
         box-shadow: 0 2px 8px rgba(225, 174, 12, 0.4);
-      }
+      } */
       .btn-primary:hover {
+        box-shadow: var(--shadow-pressed);
+        transform: scale(0.98);
+      }
+      /* .btn-primary:hover {
         background: var(--accent-hover);
         transform: translateY(-1px);
         box-shadow: 0 4px 12px rgba(225, 174, 12, 0.5);
-      }
+      } */
       .btn-secondary {
-        background: var(--bg-color);
+        /* background: var(--bg-color);
         color: var(--text-main);
         border-color: var(--border-color);
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-sm); */
+        box-shadow: var(--shadow-elevated);
+        background-color: #ffffff;
       }
       .btn-secondary:hover {
-        background: var(--surface-100);
-        border-color: #d0d0d0;
+        /* background: var(--surface-100);
+        border-color: #d0d0d0; */
+        box-shadow: var(--shadow-pressed);
+        transform: scale(0.98);
       }
       .btn-dark {
         background: var(--bg-color);
@@ -315,9 +349,10 @@
         border-radius: 3vw;
         width: 84%;
         margin: 0 auto;
-        /* background-color: inherit; */
+        background-color: inherit;
         box-shadow:
-          0 1px 40px #00000020,
+          0px -6px 10px #ffffff,
+          4px 6px 20px #00000020,
           inset 0 1px 16px #00000015;
       }
       .hero__wrapper {
