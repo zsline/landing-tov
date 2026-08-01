@@ -222,6 +222,14 @@
         font-weight: 600;
         cursor: pointer;
         box-shadow: var(--shadow-elevated);
+        transition: all var(--transition);
+      }
+      .btn-brand {
+        box-shadow: none;
+        margin-right: 12px;
+      }
+      .btn-brand:hover {
+        background-color: var(--bg-light);
       }
       /* .btn {
         display: inline-flex;
@@ -1999,7 +2007,7 @@
               протягом 15 хвилин, розбере вашу бізнес-модель та порадить
               оптимальний варіант. <br /><br /><strong
                 style="color: var(--accent-brand)"
-                >Бонус: Знижка 500 ₴ на реєстрацію.</strong
+                >Бонус: безкоштовний лендінг після реєстрації.</strong
               >
             </p>
 
@@ -2017,7 +2025,7 @@
                 placeholder="Ваш номер телефону"
                 required
               />
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-brand">
                 Отримати консультацію
               </button>
             </form>
