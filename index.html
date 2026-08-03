@@ -532,6 +532,33 @@
         background: var(--bg-color);
         box-shadow: var(--shadow-focus);
       }
+      .quiz-result-badge {
+        padding: 16px 20px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+        font-size: 1.02rem;
+        text-align: left;
+        font-family: "Inter", sans-serif;
+      }
+      .result-green {
+        background: rgba(82, 196, 26, 0.1);
+        border: 1px solid rgba(82, 196, 26, 0.3);
+        color: #237804;
+      }
+      .result-yellow {
+        background: rgba(250, 219, 20, 0.1);
+        border: 1px solid rgba(250, 219, 20, 0.3);
+        color: #ad8b00;
+      }
+      .result-blue {
+        background: rgba(24, 144, 255, 0.1);
+        border: 1px solid rgba(24, 144, 255, 0.3);
+        color: #096dd9;
+      }
       .badge-pill {
         display: flex;
         align-items: center;
@@ -1354,9 +1381,12 @@
                       Залиште контакти для зв'язку з нашим менеджером та
                       отримання
                       <b>повноцінного лендінга*</b> для презентації Вашого
-                      бізнесу <b><i>безкоштовно</i></b
-                      >.
+                      бізнесу <b>у подарунок*</b>.
                     </p>
+                    <h4 style="font-size: 18px; margin-bottom: 8px">
+                      Вам рекомендована система оподаткування:
+                    </h4>
+                    <div id="quiz-result-badge"></div>
 
                     <form id="quiz-lead-form" onsubmit="submitQuiz(event)">
                       <div class="quiz-form-group">
@@ -1379,7 +1409,7 @@
                           class="btn btn-primary"
                           style="width: 100%; height: 50px"
                         >
-                          Отримати розрахунок та знижку
+                          Отримати подарунок
                         </button>
                       </div>
                     </form>
@@ -2102,6 +2132,49 @@
         }, 300);
       }
 
+      function getRecommendation() {
+        const activity = quizAnswers.step1;
+        const turnover = quizAnswers.step2;
+        const statute = quizAnswers.step4;
+
+        const isOverLimit =
+          turnover === "7.8 - 10 млн грн" || turnover === "Понад 10 млн грн";
+
+        // Rule 3: General System
+        if (activity === "Виробництво" || isOverLimit) {
+          return {
+            system: "🔵 Загальна система оподаткування",
+            desc: "Рекомендовано для виробничих підприємств або при обороті понад 7.8 млн грн на рік. Передбачає сплату податку на прибуток (18%) та ПДВ (20%).",
+            class: "result-blue",
+            icon: "🔵",
+          };
+        }
+
+        // Rule 2: Simplified 3% + VAT
+        if (
+          (activity === "Торгівля" &&
+            (turnover === "До 1 млн грн" || turnover === "1 - 7.8 млн грн")) ||
+          (activity === "IT / Консалтинг" &&
+            turnover === "1 - 7.8 млн грн" &&
+            statute === "Індивідуальний статут")
+        ) {
+          return {
+            system: "🟡 Спрощена система 3% + ПДВ",
+            desc: "Рекомендовано для торгівлі або IT-компаній з індивідуальним статутом, які працюють з великими B2B контрагентами — платниками ПДВ.",
+            class: "result-yellow",
+            icon: "🟡",
+          };
+        }
+
+        // Rule 1: Simplified 5%
+        return {
+          system: "🟢 Спрощена система 5%",
+          desc: "Оптимальний вибір для IT, консалтингу та послуг з річним оборотом до 7.8 млн грн. Мінімальна звітність та всього 5% податку від доходу.",
+          class: "result-green",
+          icon: "🟢",
+        };
+      }
+
       function goToStep(step) {
         if (step < 1 || step > totalSteps) return;
 
@@ -2110,6 +2183,21 @@
           .classList.remove("active");
         currentStep = step;
         document.getElementById("step-" + currentStep).classList.add("active");
+
+        if (currentStep === 5) {
+          const rec = getRecommendation();
+          const badge = document.getElementById("quiz-result-badge");
+          if (badge) {
+            badge.className = "quiz-result-badge " + rec.class;
+            badge.innerHTML = `
+              <span style="font-size: 24px;">${rec.icon}</span>
+              <div>
+                <div style="font-weight: 700;">${rec.system}</div>
+                <div style="font-size: 0.85rem; font-weight: normal; margin-top: 4px; line-height: 1.4;">${rec.desc}</div>
+              </div>
+            `;
+          }
+        }
 
         updateProgress();
       }
@@ -2122,6 +2210,7 @@
         event.preventDefault();
         const name = document.getElementById("quiz-name").value;
         const phone = document.getElementById("quiz-phone").value;
+        const rec = getRecommendation();
 
         // Simulate form submission
         const step5 = document.getElementById("step-5");
@@ -2129,7 +2218,8 @@
           <div style="text-align: center; padding: 24px 0; font-family: 'Inter', sans-serif;">
             <div style="font-size: 48px; margin-bottom: 16px; color: var(--accent-brand);">✓</div>
             <h3 style="color: var(--text-main); margin-bottom: 12px; font-size: 1.5rem; font-weight: 700;">Дякуємо, ${name}!</h3>
-            <p style="color: var(--text-muted); font-size: 1.05rem;">Вашу заявку прийнято. Ми підготували розрахунок та надішлемо вам його у месенджер на номер <b>${phone}</b> протягом 15 хвилин.</p>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 16px;">Вашу заявку прийнято. Рекомендована вам система: <b>${rec.system}</b>.</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Юрист зателефонує вам на номер <b>${phone}</b> протягом 15 хвилин для підтвердження та розрахунку знижки 500 ₴.</p>
           </div>
         `;
         document.getElementById("quiz-progress").style.width = "100%";
